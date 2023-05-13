@@ -1,0 +1,66 @@
+.jumbotron {
+    background-color: #f8f9fa;
+    color: #343a40;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+}
+
+p.lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #f8f9fa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    color: #343a40;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #dee2e6;
+  }
+  
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+  } 
+  .realica-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    
+  }
+  /* Show the dropdown menu when hovering over the "About" link */
+.realica-link:hover + .realica-dropdown,
+.realica-dropdown:hover {
+  display: block;
+}

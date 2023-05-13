@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=8">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="sidebar">
+          <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'realica' %}" class="realica-link">Realica</a>
+              <ul class="realica-dropdown">
+                <li><a href="https://www.delfi.ee/">Link 1</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
