@@ -53,14 +53,33 @@ p.lead {
     margin-left: 200px;
     padding: 20px;
   } 
-  .realica-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    
-  }
-  /* Show the dropdown menu when hovering over the "About" link */
-.realica-link:hover + .realica-dropdown,
-.realica-dropdown:hover {
+  /* Styles for the dropdown menu */
+.realica-dropdown {
+  display: none;
+}
+
+.realica-dropdown li {
+  margin-bottom: 0px;
+}
+
+.realica-dropdown a {
+  color: #343a40;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 0px;
+  background-color: #f1f4f7;
+}
+
+/* Show the dropdown menu when the "Realica" link is clicked */
+.realica-link.active + .realica-dropdown {
   display: block;
+}
+.normal-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
+}
+.about-section{
+  margin-top: 80px;
 }

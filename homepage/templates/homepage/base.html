@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=8">
+   <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=10">
   </head>
   <body>
     <header>
@@ -15,7 +15,8 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'realica' %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
-                <li><a href="https://www.delfi.ee/">Link 1</a></li>
+                <li><a href="{% url 'realica' %}">Sissejuhatus</a></li>
+                <li><a href="https://www.ekool.eu/#/">Ekool</a></li>
               </ul>
             </li>
           </ul>
@@ -25,5 +26,14 @@
     <div class="content">
       {% block content %}{% endblock %}
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.realica-link').click(function(e) {
+          e.preventDefault();
+          $(this).siblings('.realica-dropdown').toggle();
+        });
+      });
+    </script>
   </body>
 </html>
