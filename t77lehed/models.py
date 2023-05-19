@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-class Image(models.Model):
-    name = models.CharField(max_length=50, default=None)
-    img = models.ImageField(upload_to='images/', default=None)
+class image(models.Model):
+    title = models.CharField(max_length=20,default='0000000')
+    photo = models.ImageField(upload_to='media',default='0000000')

@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .forms import ImageForm
+#from .forms import ImageForm
 from django.http import HttpResponse
-from .models import Image
+from .models import image
 from django.http import FileResponse
 import os
 
@@ -24,16 +24,28 @@ document.save(target_stream)
 """
 
 def view_docx(request):
-    file_path = 'path/to/file.docx'
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-            return response
-    return HttpResponse("File not found")
+    filepath = f"{os.getcwd()}\\media\\kukk.pdf"
+    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+def view_pdf(request):
+    context={
+        "pdf":f"{os.getcwd()}\\media\\kukk.pdf"
+    }
+    return render(request, "pdf.html", context)
+
+def pildid(request):
+    data = image.objects.all()
+    context = {
+        'data' : data
+    }
+    return render(request,"display.html", context)
+
+
+
+
+
 
 # Create your views here.
-
+"""
 def gallery(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
@@ -49,3 +61,4 @@ def gallery(request):
             "BASIC_DIR":os.getcwd(),
     }
     return render(request, "template/gallery.html", context)
+"""
