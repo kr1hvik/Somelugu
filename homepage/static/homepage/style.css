@@ -10,6 +10,7 @@
 h1 {
     font-size: 6rem;
     margin-bottom: 1rem;
+    
 }
 
 p.lead {
@@ -52,7 +53,9 @@ p.lead {
   .content {
     margin-left: 200px;
     padding: 20px;
-  } 
+  }
+     
+   
   /* Styles for the dropdown menu */
 .realica-dropdown {
   display: none;
@@ -80,6 +83,11 @@ p.lead {
   line-height: 1.5;
   color: #333333;
 }
+  .normal-text h1{
+    margin-bottom: 3rem;
+    font-size: 6rem;
+    margin-top: 0.1rem;
+  }
 .about-section{
   margin-top: 80px;
 }
