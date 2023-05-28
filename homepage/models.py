@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Tekst(models.Model):
+    dokument = models.FileField(null=True)
+   
