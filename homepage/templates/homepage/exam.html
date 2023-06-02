@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tööleht1 "Realica"</title>
+</head>
+<body>
+    <h1>Vali üks või mitu vastust</h1>
+    
+    <form action="{% url 'submit_exam' %}" method="post">
+        {% csrf_token %}
+        
+        {% for question in questions %}
+        <h2>Küsimus {{ forloop.counter }}:</h2>
+        <p>{{ question.text }}</p>
+        
+        {% for choice in question.choice_set.all %}
+        <label>
+            <input type="checkbox" name="question_{{ question.id }}_choice" value="{{ choice.id }}">
+            {{ choice.text }}
+        </label>
+        {% endfor %}
+        {% endfor %}
+        
+        <button type="submit">Lõpetan Testi</button>
+    </form>
+</body>
+</html>

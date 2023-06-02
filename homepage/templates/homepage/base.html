@@ -13,11 +13,19 @@
         <div class="sidebar">
           <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="https://www.ekool.eu/#/">Ekool</a></li>
             <li><a href="{% url 'realica' %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
                 <li><a href="{% url 'realica' %}">Sissejuhatus</a></li>
-                <li><a href="https://www.ekool.eu/#/">Ekool</a></li>
+                <li><a href="{% url 'realica' %}">Mdea mingi teema</a></li>
+                <li><a href="{% url 'realica' %}">Mdea mingi teema1</a></li>
+                <li><a href="{% url 'realica' %}">Mdea mingi teema2</a></li>
+                <li><a href="{% url 'realica' %}">Mdea mingi teema3</a></li>
               </ul>
+              <li><a href="{% url 'realica' %}" class="realica-link">Töölehed</a>
+                <ul class="realica-dropdown">
+                  <li><a href="{% url 'exam' %}">leht1</a></li>
+                  <li><a href="{% url 'realica' %}">leht2</a></li>
             </li>
           </ul>
         </div>
