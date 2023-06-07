@@ -3,6 +3,7 @@
 
 <html>
   <head>
+    <base href="{{BASE_DIR}}">
     <meta charset="UTF-8">
     <title>{% block title %}Somelugu{% endblock %}</title>
    <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=13">
@@ -12,13 +13,16 @@
       <nav>
         <div class="sidebar">
           <ul>
+            
             <li><a href="https://www.ekool.eu/#/">Ekool</a></li>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'vaatamine' %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
-                {% for leht in lehed%}
-                <li><a href="{% url 'vaatamine' %}">{{leht}}</a></li>
-                {%endfor%}
+
+
+                {%for leht in lehed%}
+                <li><a href="{{leht.1}}">{{leht.0}}</a></li>
+                {% endfor %}
                 
               </ul>
             </li>
