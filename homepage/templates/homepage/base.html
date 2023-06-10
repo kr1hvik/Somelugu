@@ -6,16 +6,16 @@
     <base href="{{BASE_DIR}}">  
     <meta charset="UTF-8">
     <title>{% block title %}Somelugu{% endblock %}</title>
-   <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=14">
+   <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=13">
   </head>
   <body>
     <header>
       <nav>
         <div class="sidebar">
           <ul>
-            
+            <li><a href="{% url 'vaatamine' tekst_id=1 %}">View Text</a></li>
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'vaatamine' %}" class="realica-link">Realica</a>
+            <li><a href="{% url 'vaatamine' tekst_id=1 %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
 
 
