@@ -6,10 +6,11 @@ from django.shortcuts import render
 from docx import Document
 from django.template.defaultfilters import linebreaksbr
 from .models import Tekst
-from django.conf import settings
 
 
-def koristatud():
+def koristatud(request):
+    
+
     koristatud=[]
     failid = [tekst.dokument.name for tekst in Tekst.objects.all()]
     for f in failid:
@@ -19,14 +20,16 @@ def koristatud():
                 break
             puhas+=s
         #{% url 'vaatamine' %}
-        koristatud.append([puhas, "{%url'"+f+"'%}" ])
+        koristatud.append([puhas, "{%url'"+f+"'%}" ])#+domain+"/"
     return koristatud
 
-def home(response):
-    return render(response, "homepage/main.html", {"lehed":koristatud()}) 
+def home(request):
+    domain = request.build_absolute_uri('/')[:-1]
+    return render(request, "homepage/main.html", {"lehed":koristatud(request), "BASE_DIR":domain}) 
 
 
 def realica(request, leht):
+    domain = request.build_absolute_uri('/')[:-1]
     dok=leht[6:-3]
     number=Tekst.objects.get(dokument=str(dok)).id
     tekst_instance = Tekst.objects.get(id=number)
@@ -36,12 +39,12 @@ def realica(request, leht):
     if saved_file.name.endswith('.docx'):
         doc= Document(saved_file)
         paragraphs= [paragraph.text for paragraph in doc.paragraphs]
-        return render(request, 'homepage/realica.html', {'sisu': paragraphs, "lehed":koristatud(), "current":dok[0:-5],"BASE_DIR":settings.BASE_DIR})
+        return render(request, 'homepage/realica.html', {'sisu': paragraphs, "lehed":koristatud(request), "current":dok[0:-5], "BASE_DIR":domain})
     else:
         with saved_file.open() as file:
             file_content = file.read().decode("utf-8")
             file_content = linebreaksbr(file_content)
-        return render(request, "homepage/realica.html", {"sisu":file_content, "lehed":koristatud(), "current":dok[0:-3],"BASE_DIR":settings.BASE_DIR})
+        return render(request, "homepage/realica.html", {"sisu":file_content, "lehed":koristatud(request), "current":dok[0:-3], "BASE_DIR":domain})
 
 
 def upload_file(request):

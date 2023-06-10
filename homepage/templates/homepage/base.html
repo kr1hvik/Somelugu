@@ -3,7 +3,7 @@
 
 <html>
   <head>
-    <base href="{{BASE_DIR}}">
+    <base href="{{BASE_DIR}}">  
     <meta charset="UTF-8">
     <title>{% block title %}Somelugu{% endblock %}</title>
    <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=13">
@@ -21,7 +21,8 @@
 
 
                 {%for leht in lehed%}
-                <li><a href="{{leht.1}}">{{leht.0}}</a></li>
+                <li><a href="{{leht.1}}" >{{leht.0}}</a></li>
+                {{leht.1}}
                 {% endfor %}
                 
               </ul>
