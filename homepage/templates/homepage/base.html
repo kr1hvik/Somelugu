@@ -13,17 +13,18 @@
       <nav>
         <div class="sidebar">
           <ul>
-            <li><a href="{% url 'vaatamine' tekst_id=1 %}">View Text</a></li>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'vaatamine' tekst_id=1 %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
 
+                <li><a href="{% url 'vaatamine' tekst_id=1 %}">Reaali Poiss</a></li>
+                <li><a href="{% url 'vaatamine' tekst_id=3 %}">Sissejuhatus Reaalkooli ajalukku</a></li>
+                <li><a href="{% url 'vaatamine' tekst_id=4 %}">Tallinna Reaalkooli tähtsus Eesti Vabariigi rajamisel</a></li>
+                <li><a href="{% url 'vaatamine' tekst_id=5 %}">Reaalkooli sümbolid</a></li>
+                <li><a href="{% url 'vaatamine' tekst_id=6 %}">Reaalkooli legendaarsed õpetajad</a></li>
+                <li><a href="{% url 'vaatamine' tekst_id=7 %}">Reaalkooli direktorid</a></li>
+                <li><a href="{% url 'vaatamine' tekst_id=8 %}">Reaalkool teises ilmasõjas</a></li>
 
-                {%for leht in lehed%}
-                <li><a href="{{leht.1}}" >{{leht.0}}</a></li>
-                {{leht.1}}
-                {% endfor %}
-                
               </ul>
             </li>
           </ul>
