@@ -1,0 +1,10 @@
+{% extends 'homepage/base.html' %}
+
+{% block content %}
+  <div class="about-section">
+    <h1>{{ tekst.title }}</h1>
+    <div class="normal-text">
+      {{ html_content|safe }}
+    </div>
+  </div>
+{% endblock %}
