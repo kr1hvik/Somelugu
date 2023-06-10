@@ -6,7 +6,6 @@ from django.shortcuts import render
 from docx import Document
 from django.template.defaultfilters import linebreaksbr
 from .models import Tekst
-from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import markdown
 
 
@@ -49,20 +48,9 @@ def realica(request, leht):
         return render(request, "homepage/realica.html", {"sisu":file_content, "lehed":koristatud(request), "current":dok[0:-3], "BASE_DIR":domain})
 
 
-def upload_file(request):
-    if request.method == 'POST':
-        form= UploadFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponse ("file nimi on ")
-        else: return HttpResponse ("error 400 ")
-    else: 
-        form= UploadFileForm()
-    return render(request, 'homepage/upload.html', {'form': form})
 
-
-def vaatamine(request):
-    tekst = Tekst.objects.get(id=12)
+def vaatamine(request, tekst_id):
+    tekst = Tekst.objects.get(id=tekst_id)
 
     # Read the content of the uploaded file
     markdown_content = ""

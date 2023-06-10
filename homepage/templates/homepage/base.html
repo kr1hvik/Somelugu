@@ -6,7 +6,7 @@
     <base href="{{BASE_DIR}}">  
     <meta charset="UTF-8">
     <title>{% block title %}Somelugu{% endblock %}</title>
-   <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=13">
+   <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=14">
   </head>
   <body>
     <header>
@@ -14,7 +14,6 @@
         <div class="sidebar">
           <ul>
             
-            <li><a href="https://www.ekool.eu/#/">Ekool</a></li>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'vaatamine' %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
