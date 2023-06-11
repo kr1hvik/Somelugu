@@ -5,6 +5,5 @@ from . import views
 urlpatterns= [
     #re_path(r"^bio/(?P<username>\w+)/$", views.bio, name="bio"),
     path("", views.home, name= "home"),
-    re_path('(?P<leht>[^/]+\.[^/]+)/$', views.realica, name='realica'),
-    path('vaatamine/<int:tekst_id>/', views.vaatamine, name='vaatamine')
+    path('vaatamine/<str:title>/', views.vaatamine, name='vaatamine'),
 ]

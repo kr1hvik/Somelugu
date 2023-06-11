@@ -6,7 +6,7 @@
     <base href="{{BASE_DIR}}">  
     <meta charset="UTF-8">
     <title>{% block title %}Somelugu{% endblock %}</title>
-   <!--v= tuleb iga kord updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=13">
+   <!--v=  vahel tuleb updateda kui on muutused style.css--> <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}?v=13">
   </head>
   <body>
     <header>
@@ -14,16 +14,25 @@
         <div class="sidebar">
           <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'vaatamine' tekst_id=1 %}" class="realica-link">Realica</a>
+            <li><a href="{% url 'vaatamine' title='Reaali Poisi lugu' %}" class="realica-link">Realica</a>
               <ul class="realica-dropdown">
 
-                <li><a href="{% url 'vaatamine' tekst_id=1 %}">Reaali Poiss</a></li>
-                <li><a href="{% url 'vaatamine' tekst_id=3 %}">Sissejuhatus Reaalkooli ajalukku</a></li>
-                <li><a href="{% url 'vaatamine' tekst_id=4 %}">Tallinna Reaalkooli tähtsus Eesti Vabariigi rajamisel</a></li>
-                <li><a href="{% url 'vaatamine' tekst_id=5 %}">Reaalkooli sümbolid</a></li>
-                <li><a href="{% url 'vaatamine' tekst_id=6 %}">Reaalkooli legendaarsed õpetajad</a></li>
-                <li><a href="{% url 'vaatamine' tekst_id=7 %}">Reaalkooli direktorid</a></li>
-                <li><a href="{% url 'vaatamine' tekst_id=8 %}">Reaalkool teises ilmasõjas</a></li>
+                <li><a href="{% url 'vaatamine' title='Reaali Poisi lugu' %}">Reaali Poiss</a></li> <!--igal markdowni filel on kindel title-->
+                <li><a href="{% url 'vaatamine' title='Sissejuhatus Reaalkooli ajalukku' %}">Sissejuhatus Reaalkooli ajalukku</a></li>
+                <li><a href="{% url 'vaatamine' title='Tallinna Reaalkooli tähtsus Eesti Vabariigi rajamisel' %}">Tallinna Reaalkooli tähtsus Eesti Vabariigi rajamisel</a></li>
+                <li><a href="{% url 'vaatamine' title='Reaalkooli sümbolid' %}">Reaalkooli sümbolid</a></li>
+                <li><a href="{% url 'vaatamine' title='Reaalkooli legendaarsed õpetajad' %}">Reaalkooli legendaarsed õpetajad</a></li>
+                <li><a href="{% url 'vaatamine' title='Reaalkooli direktorid' %}">Reaalkooli direktorid</a></li>
+                <li><a href="{% url 'vaatamine' title='Reaalkool teises ilmasõjas' %}">Reaalkool teises ilmasõjas</a></li>
+
+              </ul>
+            </li>
+            <li><a href="{% url 'vaatamine' title='Reaali Poisi lugu' %}" class="realica-link">Vana-Kreeka</a>
+              <ul class="realica-dropdown">
+
+                <li><a href="{% url 'vaatamine' title='Kreeta-Mükeene tsivilisatsioon' %}">Kreeta-Mükeene tsivilisatsioon</a></li> <!--igal markdowni filel on kindel title-->
+                <li><a href="{% url 'vaatamine' title='Kreeta-Mükeene kangelaseepika' %}">Kreeta-Mükeene kangelaseepika</a></li>
+                <li><a href="{% url 'vaatamine' title='Kreeka arhailine periood' %}">Kreeka arhailine periood</a></li>
 
               </ul>
             </li>
@@ -35,7 +44,7 @@
 
       {% block content %}{% endblock %}
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--vajalik selleks et dropdown töötaks-->
     <script>
       $(document).ready(function() {
         $('.realica-link').click(function(e) {

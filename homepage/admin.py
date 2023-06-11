@@ -1,6 +1,4 @@
 from django.contrib import admin
-from .models import Tekst
-
+from .models import *
+#lisame markdown filed database läbi admin site
 admin.site.register(Tekst)
-
-# Register your models here.
