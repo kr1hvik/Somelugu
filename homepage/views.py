@@ -23,4 +23,5 @@ def vaatamine(request, title):
     html_content = markdown.markdown(markdown_content)
     return render(request, 'homepage/vaata.html', {'tekst': tekst, 'html_content': html_content})
 
-
+def dino(request):
+    return render(request, 'homepage/dino.html', {})
